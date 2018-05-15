@@ -1,6 +1,8 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
+    <a class="btn btn-default" href="{% url 'blog:index' %}">Back to blog</a>
+
     <h1>Edit post</h1>
     <form method="POST" class="post-form" item-width="100%">{% csrf_token %}
         {{ form.as_p }}
