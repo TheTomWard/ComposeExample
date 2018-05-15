@@ -1,0 +1,17 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    {% if latest_post_list %}
+        {% for post in latest_post_list %}
+            <div>
+                <td><h1><a href="{% url 'blog:detail' post.id %}">{{ post.title }}</a></h1></td>
+            </div>
+            <div style="border-bottom: black solid 1px">
+                <div><p>{{ post.text|linebreaksbr }}</p></div>
+                <div>Publication Date: {{ post.published_date }}</div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No posts are available.</p>
+    {% endif %}
+{% endblock %}

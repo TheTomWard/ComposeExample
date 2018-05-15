@@ -1,0 +1,15 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}">
+
+<div class="page-header">
+    <h1>Tom's Blog</h1>
+
+    {% if user.is_authenticated %}
+        <a href="{% url 'blog:post_new' %}" class="top-menu">+ New Post</a>
+    {% endif %}
+</div>
+<div>
+    {% block content %}
+    {% endblock %}
+</div>
