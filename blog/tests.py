@@ -38,12 +38,14 @@ class PostModelTests(TestCase):
 
 
 def setup_test_user():
+    """
+    Create a user to post a blog if one doesn't already exist
+    """
     from django.contrib.auth.models import User
     if User.objects.filter(username='Tester').exists():
         user = User.objects.get(username='Tester')
     else:
         user = User.objects.create_user(username='Tester', email='test@test.com', password='test')
-
     return user
 
 
