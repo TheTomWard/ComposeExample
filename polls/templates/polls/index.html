@@ -1,27 +1,28 @@
+{% extends 'polls/base.html' %}
 {% load static %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+{% block content %}
+    <div class="page-header">
+        <h1>List of Polls</h1>
+    </div>
 
-<div class="page-header">
-    <h1>List of Polls</h1>
-</div>
-
-{% if latest_question_list %}
-    <Table width="100%">
-        <tr class="border_bottom">
-            <td><h2>Question</h2></td>
-            <td><h2>Total Votes</h2></td>
-            <td><h2>Publication Date</h2></td>
-        </tr>
-    {% for question in latest_question_list %}
-        <tr class="border_bottom">
-            <td><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></td>
-            <td>{{ question.total_votes }} </td>
-            <td>{{ question.pub_date }}</li></td>
-        </tr>
-    {% endfor %}
-    </Table>
-{% else %}
-    <p>No polls are available.</p>
-{% endif %}
+    {% if latest_question_list %}
+        <Table width="100%">
+            <tr class="border_bottom">
+                <td><h2>Question</h2></td>
+                <td><h2>Total Votes</h2></td>
+                <td><h2>Publication Date</h2></td>
+            </tr>
+        {% for question in latest_question_list %}
+            <tr class="border_bottom">
+                <td><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></td>
+                <td>{{ question.total_votes }} </td>
+                <td>{{ question.pub_date }}</li></td>
+            </tr>
+        {% endfor %}
+        </Table>
+    {% else %}
+        <p>No polls are available.</p>
+    {% endif %}
+{% endblock %}
     
