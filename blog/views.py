@@ -7,14 +7,14 @@ from .forms import PostForm
 
 class IndexView(generic.ListView):
     template_name = 'blog/index.html'
-    context_object_name = 'latest_post_list'
+    context_object_name = 'post_list'
 
     def get_queryset(self):
         """
         Return the list of posts (not including those set to be
         published in the future).
         """
-        return Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+        return Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
 
 
 class DetailView(generic.DetailView):

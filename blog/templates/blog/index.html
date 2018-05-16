@@ -1,8 +1,8 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-    {% if latest_post_list %}
-        {% for post in latest_post_list %}
+    {% if post_list %}
+        {% for post in post_list %}
             <div>
                 <td><h1><a href="{% url 'blog:detail' post.id %}">{{ post.title }}</a></h1></td>
             </div>
