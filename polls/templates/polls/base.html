@@ -1,13 +1,14 @@
-{% extends 'main/header.html' %}
+{% extends 'main/base.html' %}
 {% load static %}
 
 <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
 
-<div class="page-header">
-    <h1>Tom's Polls</h1>
-</div>
-
-<div>
+{% block main-content %}
+    {% block content-header %}
+    <div class="page-header">
+        <h1>Tom's Polls</h1>
+    </div>
+    {% endblock %}
     {% block content %}
     {% endblock %}
-</div>
+{% endblock %}
