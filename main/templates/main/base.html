@@ -15,7 +15,7 @@
     <body>
 
         {# SIDE-NAVIGATION-BAR #}
-        <div class="side-nav-bar" style="height: 100%; width: 5%; float: left; background-color: #bf80ff">
+        <div class="side-nav-bar" style="height: 100%; width: 5%; float: left; background-color: mediumpurple">
             {% block side-nav-bar %}
             {% endblock %}
         </div>
@@ -23,29 +23,29 @@
         <div style="overflow: auto">
 
             {# HEADER #}
-            <div class="header" style="margin: 0px 20px; padding: 20px 0px; border-bottom: #bfbfbf 1px solid">
+            <div class="header" style="margin: 0px 20px; padding: 20px 0px; border-bottom: lightgrey 1px solid">
                 {% block header %}
                     <h1>Woahhh! Radical website dude!</h1>
                 {% endblock %}
             </div>
 
             {# SIDE-NAVIGATION-LINKS #}
-            <div class="side-nav-links" style="height: 100%; width: 10%; float: left; margin: 20px 0px; padding: 0px 20px; border-right: #bfbfbf 1px solid">
+            <div class="side-nav-links" style="width: 10%; float: left; margin: 20px 0px; padding: 0px 20px; border-right: lightgrey 1px solid">
                 {% block side-nav-links %}
                 <ul>
                     <li>
                         <h2>
-                            <a class="btn btn-default" href="{% url 'main:index' %}">Main</a>
+                            <a href="{% url 'main:index' %}">Main</a>
                         </h2>
                     </li>
                     <li>
                         <h2>
-                            <a class="btn btn-default" href="{% url 'blog:index' %}">Blog</a>
+                            <a href="{% url 'blog:index' %}">Blog</a>
                         </h2>
                     </li>
                     <li>
                         <h2>
-                            <a class="btn btn-default" href="{% url 'polls:index' %}">Polls</a>
+                            <a href="{% url 'polls:index' %}">Polls</a>
                         </h2>
                     </li>
                 </ul>

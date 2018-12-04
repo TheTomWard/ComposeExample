@@ -28,7 +28,7 @@ class DetailView(generic.DetailView):
         return Post.objects.filter(published_date__lte=timezone.now())
 
 
-def post_new(request):
+def new_post(request):
     if request.method == "POST":
         form = PostForm(request.POST)
         if form.is_valid():
@@ -42,7 +42,7 @@ def post_new(request):
     return render(request, 'blog/edit.html', {'form': form})
 
 
-def post_edit(request, pk):
+def edit_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
         form = PostForm(request.POST, instance=post)

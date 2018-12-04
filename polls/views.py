@@ -1,10 +1,11 @@
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.views import generic
 from django.utils import timezone
 
 from .models import Choice, Question
+from .forms import QuestionForm
 
 
 class IndexView(generic.ListView):
@@ -52,3 +53,28 @@ def vote(request, question_id):
         # with POST data. This prevents data from being posted twice if a
         # user hits the Back button.
         return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
+
+def new_question(request):
+    if request.method == "POST":
+        form = QuestionForm(request.POST)
+        if form.is_valid():
+            poll = form.save(commit=False)
+            poll.pub_date = timezone.now()
+            poll.save()
+            return redirect('poll:detail', pk=poll.pk)
+    else:
+        form = QuestionForm()
+    return render(request, 'polls/edit.html', {'form': form})
+
+def edit_question(request, pk):
+    post = get_object_or_404(Question, pk=pk)
+    if request.method == "POST":
+        form = QuestionForm(request.POST, instance=post)
+        if form.is_valid():
+            question = form.save(commit=False)
+            question.pub_date = timezone.now()
+            question.save()
+            return redirect('blog:detail', pk=post.pk)
+    else:
+        form = QuestionForm(instance=post)
+    return render(request, 'polls/edit.html', {'form': form})

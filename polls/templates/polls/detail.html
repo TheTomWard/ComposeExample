@@ -1,16 +1,23 @@
 {% extends 'polls/base.html' %}
 
 {% block content %}
-    <h1>{{ question.question_text }}</h1>
+    <div class="content-block">
+        <h2>{{ question.question_text }}</h2>
 
-    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+        {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
-    <form action="{% url 'polls:vote' question.id %}" method="post">
-    {% csrf_token %}
-    {% for choice in question.choice_set.all %}
-        <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
-        <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br />
-    {% endfor %}
-    <input type="submit" value="Vote" />
-    </form>
+        <form action="{% url 'polls:vote' question.id %}" method="post">
+        {% csrf_token %}
+        {% for choice in question.choice_set.all %}
+            <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
+            <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br />
+        {% endfor %}
+        <input type="submit" value="Vote" />
+        </form>
+        <div class="content-block-links">
+            {% if user.is_authenticated %}
+                <a href="{% url 'polls:edit_question' pk=question.pk %}">Edit</a>
+            {% endif %}
+        </div>
+    </div>
 {% endblock %}

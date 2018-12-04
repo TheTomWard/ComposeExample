@@ -7,22 +7,19 @@
     </div>
 
     {% if latest_question_list %}
-        <Table width="100%">
-            <tr class="border_bottom">
-                <td><h2>Question</h2></td>
-                <td><h2>Total Votes</h2></td>
-                <td><h2>Publication Date</h2></td>
-            </tr>
         {% for question in latest_question_list %}
-            <tr class="border_bottom">
-                <td><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></td>
-                <td>{{ question.total_votes }} </td>
-                <td>{{ question.pub_date }}</li></td>
-            </tr>
+            <div class="content-block">
+                <div><h2><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></h2></div>
+                <div>Total votes: {{ question.total_votes }} </div>
+                <div>Publication date: {{ question.pub_date }}</div>
+            </div>
         {% endfor %}
-        </Table>
     {% else %}
         <p>No polls are available.</p>
+    {% endif %}
+
+    {% if user.is_authenticated %}
+        <a href="{% url 'polls:new_question' %}" class="top-menu">+ New Question</a>
     {% endif %}
 {% endblock %}
     
