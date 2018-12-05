@@ -16,7 +16,9 @@
         </form>
         <div class="content-block-links">
             {% if user.is_authenticated %}
+                <a href="{% url 'polls:results' pk=question.pk %}">View Results</a>
                 <a href="{% url 'polls:edit_question' pk=question.pk %}">Edit</a>
+                <a href="{% url 'polls:delete_question' pk=question.pk %}">Delete</a>
             {% endif %}
         </div>
     </div>

@@ -1,25 +1,30 @@
 {% extends 'blog/base.html' %}
 
-{% block content %}
-    <div class="page-header">
-        <h2>List of Posts</h2>
+{% block main-content %}
+
+    {% block content-header %}
+    <div class="content-header">
+        <h1>Tom's Blog</h1>
     </div>
+    {% endblock %}
 
     {% if post_list %}
         {% for post in post_list %}
-            <div class="content-block">
-                <div>
-                    <h3><a href="{% url 'blog:detail' post.id %}">{{ post.title }}</a></h3>
-                </div>
-                <div>
+            <a href="{% url 'blog:detail' post.id %}">
+                <div class="content-block">
                     <div>
-                        <p>{{ post.text }}</p>
+                        <h3>{{ post.title }}</h3>
                     </div>
                     <div>
-                        Publication Date: {{ post.published_date }}
+                        <div>
+                            <p>{{ post.text }}</p>
+                        </div>
+                        <div>
+                            Publication Date: {{ post.published_date }}
+                        </div>
                     </div>
                 </div>
-            </div>
+            </a>
         {% endfor %}
     {% else %}
         <p>No posts are available.</p>
@@ -28,4 +33,5 @@
     {% if user.is_authenticated %}
         <a href="{% url 'blog:new_post' %}" class="top-menu">+ New Post</a>
     {% endif %}
+
 {% endblock %}

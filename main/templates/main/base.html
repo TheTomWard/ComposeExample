@@ -15,22 +15,26 @@
     <body>
 
         {# SIDE-NAVIGATION-BAR #}
-        <div class="side-nav-bar" style="height: 100%; width: 5%; float: left; background-color: mediumpurple">
+        <div class="side-bar-outer">
             {% block side-nav-bar %}
             {% endblock %}
         </div>
 
-        <div style="overflow: auto">
+        {# HEADER #}
+        <div class="header-outer">
+            {% block header %}
+                <div class="header">
+                    <div class="header-inner">
+                        <h1>Woahhh! Radical website dude!</h1>
+                    </div>
+                </div>
+            {% endblock %}
+        </div>
 
-            {# HEADER #}
-            <div class="header" style="margin: 0px 20px; padding: 20px 0px; border-bottom: lightgrey 1px solid">
-                {% block header %}
-                    <h1>Woahhh! Radical website dude!</h1>
-                {% endblock %}
-            </div>
+        <div class="content-outer">
 
             {# SIDE-NAVIGATION-LINKS #}
-            <div class="side-nav-links" style="width: 10%; float: left; margin: 20px 0px; padding: 0px 20px; border-right: lightgrey 1px solid">
+            <div class="side-nav-links">
                 {% block side-nav-links %}
                 <ul>
                     <li>

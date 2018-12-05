@@ -78,3 +78,6 @@ def edit_question(request, pk):
     else:
         form = QuestionForm(instance=post)
     return render(request, 'polls/edit.html', {'form': form})
+
+def delete_question(request, pk):
+    return redirect('polls:index')
