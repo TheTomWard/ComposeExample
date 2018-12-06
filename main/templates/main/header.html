@@ -1,0 +1,13 @@
+<div class="header">
+    <div class="header-text">
+        <a href="/"><div class="home-button"></div></a>
+        <h1>Woahhh! Radical website dude!</h1>
+    </div>
+    <div class="header-bottons">
+        {% if user.is_authenticated %}
+            <a href="/logout"><div class="button">Logout</div></a>
+        {% else %}
+            <a href="/login"><div class="button">Login</div></a>
+        {% endif %}
+    </div>
+</div>

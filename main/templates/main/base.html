@@ -17,46 +17,25 @@
         {# SIDE-NAVIGATION-BAR #}
         <div class="side-bar-outer">
             {% block side-nav-bar %}
+                {% include 'main/side-nav-bar.html' %}
             {% endblock %}
         </div>
 
         {# HEADER #}
         <div class="header-outer">
             {% block header %}
-                <div class="header">
-                    <div class="header-inner">
-                        <h1>Woahhh! Radical website dude!</h1>
-                    </div>
-                </div>
+                {% include 'main/header.html' %}
             {% endblock %}
         </div>
 
         <div class="content-outer">
 
             {# SIDE-NAVIGATION-LINKS #}
-            <div class="side-nav-links">
-                {% block side-nav-links %}
-                <ul>
-                    <li>
-                        <h2>
-                            <a href="{% url 'main:index' %}">Main</a>
-                        </h2>
-                    </li>
-                    <li>
-                        <h2>
-                            <a href="{% url 'blog:index' %}">Blog</a>
-                        </h2>
-                    </li>
-                    <li>
-                        <h2>
-                            <a href="{% url 'polls:index' %}">Polls</a>
-                        </h2>
-                    </li>
-                </ul>
-                {% endblock %}
-            </div>
+            {% block side-nav-links %}
+                {% include 'main/side-nav-links.html' %}
+            {% endblock %}
 
-            <div class="content" style="overflow: auto; padding: 20px">
+            <div class="content">
 
                 {# CONTENT #}
                 {% block main-content %}

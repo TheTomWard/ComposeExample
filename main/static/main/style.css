@@ -1,13 +1,30 @@
 * {
-    margin: 0px;
+    margin: 0;
     font-family: 'Roboto';
-    background-color: #262626;
     color: white;
+}
+
+body {
+    background-color: #333333;
 }
 
 a {
     text-decoration: none;
     color: white;
+}
+
+ul {
+  list-style-type: square;
+}
+
+.button {
+  background-color: mediumpurple;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
 }
 
 .side-bar-outer {
@@ -18,40 +35,97 @@ a {
     background-color: mediumpurple;
 }
 
+.side-bar {
+    margin: 20px 0;
+    text-align: center
+}
+
+.side-bar-element {
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+    background-color: white;
+    margin: 10px;
+}
+
 .header-outer {
     position: fixed;
-    right: 0px;
+    right: 0;
     height: 10%;
     width: 95%;
     z-index: 1;
+    background-color: #333333;
     box-shadow: 0px 15px 15px #262626;
 }
 
 .header {
     height: 100%;
-    margin: 0px 20px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
     border-bottom: lightgrey 1px solid;
 }
 
-.header-inner {
-    position: absolute;
-    top: 25%;
+.header-text {
+    flex-grow: 1;
+}
+
+.home-button{
+    float: left;
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+    background-color: white;
+    margin-right: 20px;
+}
+
+.header-buttons {
+    flex-grow: 1;
+    text-align: right;
 }
 
 .content-outer {
     height: 90%;
     width: 95%;
-    right: 0px;
-    bottom: 0px; position: absolute;
+    right: 0;
+    bottom: 0; position: absolute;
+}
+
+.content {
+    overflow: auto;
+    padding: 20px;
 }
 
 .side-nav-links {
-     width: 10%; float: left; margin: 20px 0px; padding: 0px 20px; border-right: lightgrey 1px solid;
+    height: 100%;
+    float: left;
+    margin: 20px 0;
+    padding: 0 20px;
+    border-right: lightgrey 1px solid;
+}
+
+.side-nav-link {
+    width: 100%;
+    margin: 10px 20px;
+}
+
+.login-outer {
+    height: 90%;
+    display: flex;
+    align-items: center;
+}
+
+.login {
+    width: 20%;
+    margin: auto;
+    padding: 40px;
+    border: lightgrey 1px solid;
+    box-shadow: 0px 15px 15px #262626;
 }
 
 .content-block {
     border: lightgrey 1px solid;
-    margin: 10px 0px;
+    margin: 10px 0;
     padding: 10px 10px;
 }
 
