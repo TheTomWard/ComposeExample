@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'polls.apps.PollsConfig',
     'blog.apps.BlogConfig',
     'snippets.apps.SnippetsConfig',
+    'ml.apps.MlConfig',
 ]
 
 MIDDLEWARE = [

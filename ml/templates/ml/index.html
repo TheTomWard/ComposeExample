@@ -2,6 +2,14 @@
 
 {% block main-content %}
 
-Machine Learning!!!
+{% block content-header %}
+    <div class="content-header">
+        <h1>Machine Learning</h1>
+    </div>
+{% endblock %}
+
+<a href="{% url 'ml:mnist' %}">
+    Mnist
+</a>
 
 {% endblock %}
