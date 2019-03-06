@@ -2,10 +2,12 @@ version: '3'
 
 services:
   db:
+    container_name: postgres_ce-${BUILD_NUMBER:-latest}
     image: postgres
   web:
     build: .
     command: python3 manage.py runserver 0.0.0.0:8000
+    container_name: composeexample-${BUILD_NUMBER:-latest}
     volumes:
       - .:/code
     ports:

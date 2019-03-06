@@ -3,3 +3,4 @@ django>=2.0.8
 djangorestframework
 psycopg2
 pygments
+tensorflow
