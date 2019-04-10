@@ -8,8 +8,23 @@
     </div>
 {% endblock %}
 
-<a href="{% url 'ml:mnist' %}">
-    Mnist
-</a>
+<h2>Mnist</h2>
+<div id="train-model" class="button">Train Model</div>
+<div id="js-train-model">
+
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+
+<script>
+$('#train-model').click(function() {
+    $('#js-train-model').html('Loading...');
+    $.get('train_model/', function(data){
+        $('#js-train-model').html(data);
+    });
+});
+</script>
 
 {% endblock %}

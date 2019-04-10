@@ -4,3 +4,6 @@ djangorestframework
 psycopg2
 pygments
 tensorflow
+numpy
+matplotlib
+mpld3

@@ -5,5 +5,5 @@ from . import views
 app_name = 'ml'
 urlpatterns = [
     url(r'^$', views.IndexView.as_view(), name='index'),
-    url(r'^mnist/$', views.Mnist.as_view(), name='mnist'),
+    url(r'^train_model/$', views.train_model, name='train_model'),
 ]
