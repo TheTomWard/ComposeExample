@@ -1,0 +1,29 @@
+{% extends 'vuejs/base.html' %}
+{% load static %}
+
+{% block content %}
+
+    {% block content-header %}
+    <div class="content-header">
+        <h1>VueJS</h1>
+    </div>
+    {% endblock %}
+
+    <div id="app">
+      {{ message }}
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue!'
+            }
+        });
+    </script>
+
+{% endblock %}
+
+{% block extra_js %}
+
+{% endblock %}

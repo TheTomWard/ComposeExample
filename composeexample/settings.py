@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'snippets.apps.SnippetsConfig',
     'ml.apps.MlConfig',
+    'vuejs.apps.VuejsConfig',
 ]
 
 MIDDLEWARE = [
